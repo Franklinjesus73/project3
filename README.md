@@ -15,4 +15,4 @@ Program automatically create superuser account at first start
 The personal touch its allowing site administrator to mark orders as complete and allowing users to see the status of their pending or completed orders
 
 # Screenshot
-![Screenshot](static/img/page.png)
+![Screenshot](orders/static/img/page.png)
