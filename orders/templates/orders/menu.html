@@ -1,0 +1,77 @@
+{% extends "orders/layout.html" %}
+{% load static %}
+{% block main %}
+<div class="ord">
+    <div class="col-12">
+            <h2 class="r2">{{Active_category}}</h2>
+        <div class="r">
+            <table class='table-small mx-auto'>
+                    {% if Columns == 3 %}
+                    <thead class='thead'>
+                        <tr class="bg">
+                            <th>Name</th>
+                            <th>Small &nbsp;&nbsp;</th>
+                            <th>Large</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in Menu %} 
+                    <tr  class="bg">
+                        {% load static %}
+                        <td>{{row.name}}&nbsp;&nbsp;&nbsp;</td>
+                        {% if row.small == None %}
+                            <td></td>
+                        {% else %}
+                            <td>${{row.small}}&nbsp;<a href="{% url 'add' Active_category row.name row.small %}"><img class='plus' src="{% static 'img/plus.png' %}"></a>&nbsp;&nbsp;&nbsp;</td>
+                        {% endif %}
+                        <td>${{row.large}}&nbsp;<a href="{% url 'add' Active_category row.name row.large %}"><img class='plus' src="{% static 'img/plus.png' %}"></a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                    {% endif %}
+                    {% if Columns == 2 %}
+                    <thead class='thead-light'>
+                        <tr class="bg">
+                            <th>Name</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in Menu %} 
+                        <tr class="bg">
+                            <td>{{row.name}}&nbsp;&nbsp;&nbsp;</td>
+                            <td>${{row.price}}&nbsp;<a href="{% url 'add' Active_category row.name row.price %}"><img class='plus' src="{% static 'img/plus.png' %}"></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    {% endif %}
+                    {% if Columns == 1 %}
+                    <thead class='thead-light'>
+                        <tr class="bg">
+                            <th>Name</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in Menu %} 
+                        {% if not forloop.counter|divisibleby:"2"  %}
+                        <tr class="bg">
+                            <td>{{row.name}}&nbsp;&nbsp;&nbsp;<a href="{% url 'add' Active_category row.name Topping_price  %}"><img class='plus' src="{% static 'img/plus.png' %}"></a></td>
+                        {% endif %}
+                        {% if forloop.counter|divisibleby:"2"  %}
+                            <td>{{row.name}}&nbsp;<a href="{% url 'add' Active_category row.name Topping_price %}"><img class='plus' src="{% static 'img/plus.png' %}"></a></td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                    {% endif %}
+                </table>
+    </div>
+        {% if Active_category == 'Regular Pizza' or Active_category == 'Sicilian Pizza'  %}
+        <div class='r3 text-center p-2'>
+            <h6 class='r3 text-warning mx-auto'>Special: Double Cheese + Double Onions + Double Fresh Garlic</h6>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

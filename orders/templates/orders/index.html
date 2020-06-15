@@ -1,0 +1,57 @@
+{% extends "orders/layout.html" %}
+{% block body %}
+{% load static %}
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+      
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="c carousel-item active">
+      <img class="d-block w-100" src="{% static 'img/regular.jpg' %}" alt="First slide">
+        <div class="c1 carousel-caption d-none d-md-block">
+            <h5>Would you like something tasty?</h5>
+            <p>Our Regular pizza is a thin-crust or Neapolitan pizza</p>
+            <a href="http://127.0.0.1:8000/menu/Regular%20Pizza"><button type="button" class="btn btn-dark btn-sm">Order it now!</button></a>
+        </div>
+    </div>
+    <div class="c carousel-item">
+      <img class="d-block w-100" src="{% static 'img/sicilian.jpg' %}" alt="Second slide">
+        <div class="c1 carousel-caption d-none d-md-block">
+            <h5>Would you like something tasty?</h5>
+            <p>Our Sicilian pizza is a deep-dish or thick-crust pizza.</p>
+            <a href="http://127.0.0.1:8000/menu/Sicilian%20Pizza"><button type="button" class="btn btn-dark btn-sm">Order it now!</button></a>
+        </div>
+    </div>
+    <div class="c carousel-item">
+      <img class="d-block w-100" src="{% static 'img/pasta.jpg' %}" alt="Third slide">
+        <div class="c1 carousel-caption d-none d-md-block">
+            <h5>Do you love pasta?</h5>
+            <p>You should try ours</p>
+            <a href="http://127.0.0.1:8000/menu/Pasta"><button type="button" class="btn btn-dark btn-sm">Order it now!</button></a>
+        </div>
+    </div>
+    <div class="c carousel-item">
+        <img class="d-block w-100" src="{% static 'img/salad.jpg' %}" alt="Third slide">
+        <div class="c1 carousel-caption d-none d-md-block">
+            <h5>Are you a salad person?</h5>
+            <p>We have different kind of salads you would love to try</p>
+            <a href="http://127.0.0.1:8000/menu/Salad"><button type="button" class="btn btn-dark btn-sm">Order it now!</button></a>
+        </div>
+    </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+{% endblock %}
